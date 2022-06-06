@@ -1,0 +1,21 @@
+.content-body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.content-body-left {
+  display: inline-block;
+  width: 300px;
+  font-size: 12px;
+  vertical-align: top;
+  min-height: 870px;
+}
+
+.content-body-right {
+  display: inline-block;
+  width: 690px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  vertical-align: top;
+}

@@ -1,0 +1,142 @@
+:root {
+  --azure: #1ea1f7;
+  --white-two: #ffffff;
+}
+
+.Rectangle-4 {
+  max-width: 1440px;
+  max-height: 97px;
+  margin: 0 0 15px;
+  padding: 53px 261px 12px 919px;
+  background-color: var(--azure);
+}
+
+.Rectangle-5 {
+  width: 235px;
+  max-height: 32px;
+  padding: 9px 12px 8px 14px;
+  border-radius: 2px;
+  background-color: var(--white-two);
+}
+
+.nav-container {
+  position: relative;
+  display: flex;
+  -webkit-box-pack: justify;
+  align-items: center;
+}
+
+.search-input {
+  border: 0;
+}
+
+.search-btn {
+  width: 32px;
+}
+
+.ac-container {
+  display: block;
+  width: 260px;
+}
+
+.ac-list {
+  position: absolute;
+  top: 36px;
+  right: 0px;
+  width: 260px;
+  margin-top: 4px;
+  border-radius: 4px;
+  background-color: var(--white-two);
+  box-shadow: 0px 1px 5px 0px;
+  overflow: hidden;
+}
+
+.ac-row {
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+}
+
+.ac-btn {
+  width: 50%;
+  height: 34px;
+  background-color: var(--white-two);
+}
+
+.ac-btn-disabled {
+  background-color: #ebeef1;
+}
+
+.ac-name {
+  flex: 1 1 0%;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--gray700);
+  text-align: left;
+}
+
+.hide {
+  display: none;
+}
+
+a {
+  --webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sg-link {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 6px 16px;
+  height: 53px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.sg-icon {
+  font-size: 0px;
+  line-height: 0;
+  margin-right: 15px;
+}
+
+.sg-icon img {
+  border-radius: 50%;
+  background-color: var(--black);
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+}
+
+.sg-info {
+  display: block;
+  cursor: pointer;
+}
+
+.sg-name {
+  font-size: 14px;
+  color: var(--dark-grey);
+}
+.sg-desc {
+  margin-top: 2px;
+  line-height: 14px;
+  font-size: 12px;
+  color: var(--dark-grey);
+}

@@ -1,0 +1,133 @@
+.Rectangle {
+  width: 58px;
+  height: 20px;
+  margin: 0 7px 0 0;
+  padding: 4px 5px 3px;
+  border-radius: 2px;
+  border: solid 1px var(--silver-two);
+  background-color: var(--silver);
+}
+
+.Rectangle-2 {
+  max-width: 1439px;
+  height: 1px;
+  margin: 12px 0 10px 1px;
+  background-color: var(--white-three);
+}
+
+.content-header {
+  position: relative;
+  width: 1000px;
+  height: 175px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+}
+
+.content-header ul {
+  margin-top: -5px;
+  margin-left: 5px;
+  padding-left: 30px;
+  padding-bottom: 15px;
+}
+
+.content-header ul li {
+  display: inline-block;
+  padding: 3px 4px 2px 4px;
+  margin-right: 7px;
+  background: #e0e3e3;
+  color: #657070;
+  font-size: 11px;
+  border: 1px solid #ced3d3;
+  border-radius: 3px;
+  text-transform: capitalize;
+}
+
+.content-header .face {
+  display: inline-block;
+  width: 100px;
+  padding-left: 30px;
+  vertical-align: top;
+}
+
+.content-header .face .profile-icon {
+  position: relative;
+}
+
+.content-header .face .profile-icon .border-image {
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 120px;
+  height: 120px;
+  -webkit-background-position: center bottom;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.content-header .face .profile-icon img {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.content-header .face .profile-icon .level {
+  width: 44px;
+  height: 175px;
+  margin: 98px 33px 0;
+  padding: 3px 14px 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(to bottom, var(--sandy), var(--dull-orange) 99%);
+  border-image-slice: 1;
+  background-color: var(--dark);
+}
+
+.content-header .profile {
+  position: relative;
+  display: inline-block;
+  height: 100px;
+  margin: 0 25px 0 29px;
+  vertical-align: top;
+  line-height: 1.1;
+}
+
+.content-header div {
+  display: block
+}
+
+.content-header .profile .info span {
+  color: #242929;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.content-header .profile .rank {
+  height: 13px;
+  font-family: AppleSDGothicNeo;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.42px;
+  color: var(--slate-grey);
+}
+
+.content-header .profile .rank .Text-Style-5 {
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+.content-header .profile .rank .Text-Style-6 {
+  font-family: Helvetica;
+}
