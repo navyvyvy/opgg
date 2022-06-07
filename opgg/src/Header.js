@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Header.css';
 
 const DEBOUNCE_TIME = 500;
+const MAX_USED_LENGTH = 4;
 const SUMMONER_INFO_URL = "https://codingtest.op.gg/api/summoner/";
 
 const fetchData = async (query) => {
@@ -75,13 +76,14 @@ export default function Header() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (e.target.summonerName.value !== "") {
+      let arr = [...(used.length > MAX_USED_LENGTH ? used.slice(0, -1) : used)];
 
-    let arr = [...(used.length > 4 ? used.slice(0, -1) : used)];
+      arr.unshift(e.target.summonerName.value);
+      setUsed(arr);
 
-    arr.unshift(e.target.summonerName.value);
-    setUsed(arr);
-
-    navigate(`/${e.target.summonerName.value}`);
+      navigate(`/${e.target.summonerName.value}`);
+    }
   }
 
   const delUsed = (idx) => {
@@ -112,7 +114,7 @@ export default function Header() {
           <button
             type="submit"
             className="search-btn">
-            .GG
+            <img src="https://s-lol-web.op.gg/images/icon/icon-gg.svg?v=1654157118862" alt="search" height="14"></img>
             {isLoading &&(
               <span>...</span>
             )}
@@ -123,16 +125,14 @@ export default function Header() {
                 <ul className="ac-row">
                   <li className="sg-link">
                     <div className="sg-icon">
-                        <img src={suggestions.profileImageUrl} alt={suggestions.name}/>
+                      <img src={suggestions.profileImageUrl} alt={suggestions.name}/>
+                    </div>
+                    <div className="sg-info">
+                      <div className="sg-name">
+                        <button type="submit">{suggestions.name}</button>
                       </div>
-                      <div className="sg-info">
-                        <div className="sg-name">
-                          <Link to={`/${suggestions.name}`}>
-                            {suggestions.name}
-                          </Link>
-                        </div>
-                        <div className="sg-desc">{suggestions.leagues[0].tierRank.string}</div>
-                      </div>
+                      <div className="sg-desc">{suggestions.leagues[0].tierRank.string}</div>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -142,29 +142,24 @@ export default function Header() {
             <div className="ac-container">
               <div className="ac-list">
                 <div>
-                  <button className="ac-btn">최근검색</button>
+                  <button className="ac-btn" disabled>최근검색</button>
                   <button className="ac-btn ac-btn-disabled" disabled>즐겨찾기</button>
                 </div>
-                  <ul>
-                    {used.map((i, idx) => (
-                      <li className="ac-row" key={idx}>
-                        <Link
-                          className="ac-name"
-                          to={`/${i}`}
-                        >
-                          {i}
-                        </Link>
-                        <button
-                          type="button"
-                          className="ac-btn-del"
-                          data-target={idx}
-                          onClick={delUsed.bind(this, idx)}
-                        >
-                          X
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
+                <ul>
+                  {used.map((i, idx) => (
+                    <li className="ac-row" key={idx}>
+                      <button className="ac-name" type="submit">{i}</button>
+                      <button
+                        type="button"
+                        className="ac-btn-del"
+                        data-target={idx}
+                        onClick={delUsed.bind(this, idx)}
+                      >
+                        X
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           )}
