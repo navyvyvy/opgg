@@ -21,7 +21,7 @@
 
 .nav-container {
   position: relative;
-  display: flex;
+  display: inline-flex;
   -webkit-box-pack: justify;
   align-items: center;
 }
@@ -35,8 +35,8 @@
   width: 54px;
   height: 32px;
   font-size: 0;
-  top: 2px;
-  right: 0;
+  top: 1px;
+  right: 0px;
 }
 
 .search-btn img {

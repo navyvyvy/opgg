@@ -9,6 +9,7 @@ import ContentBodyRight from './Content-body-right';
 import './Body.css';
 
 const SUMMONER_INFO_URL = "https://codingtest.op.gg/api/summoner/";
+const ITEM_URL = "http://ddragon.leagueoflegends.com/cdn/10.15.1/data/ko_KR/item.json";
 
 const useContent = (query) => {
   const [summoner, setSummoner] = useState([]);
@@ -17,6 +18,7 @@ const useContent = (query) => {
   const [champions, setChampions] = useState([]);
   const [summary, setSummary] = useState([]);
   const [most, setMost] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetchData(query);
@@ -28,6 +30,7 @@ const useContent = (query) => {
       const resInfo = await axios.get(url);
       const resMatch = await axios.get(`${url}/matches`);
       const resMost = await axios.get(`${url}/mostInfo`);
+      const resItem = await axios.get(ITEM_URL);
 
       setSummoner(resInfo.data.summoner);
       setChampions(resMatch.data.champions);
@@ -35,19 +38,20 @@ const useContent = (query) => {
       setPositions(resMatch.data.positions);
       setSummary(resMatch.data.summary);
       setMost(resMost.data);
+      setItems(resItem.data.data);
 
     } catch(err) {
       console.error(err);
     }
   }
-  return {summoner, games, positions, champions, summary, most}
+  return {summoner, games, positions, champions, summary, most, items}
 }
 
 export default function Body () {
   const { summonerName } = useParams();
-  const {summoner, games, positions, champions, summary, most} = useContent(summonerName);
+  const {summoner, games, positions, champions, summary, most, items} = useContent(summonerName);
 
-  console.log(summoner, games, positions, champions, summary, most);
+  //console.log(summoner, games, positions, champions, summary, most, items);
 
   return (
     <>
@@ -61,7 +65,8 @@ export default function Body () {
           <ContentBodyLeftBottom data={most} />
         </div>
         <div className="content-body-right">
-          <ContentBodyRight games={games} summary={summary} positions={positions} />
+          <ContentBodyRight
+            games={games} summary={summary} positions={positions} champions={champions} items={items}/>
         </div>
       </div>
 

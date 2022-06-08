@@ -63,19 +63,179 @@ button {
 }
 
 .game-summary table td.title {
-  padding: 16px 0px 14px 20px;
+  padding: 16px 20px 14px 20px;
   line-height: 14px;
   font-size: 12px;
   color: rgb(102, 102, 102);
   height: 14px;
   border-left: 1px solid rgb(205, 210, 210);
+  text-align: center;
 }
 
 .game-summary table td.most-champion {
   width: 229px;
   border-left: 1px solid rgb(205, 210, 210);
 }
+.game-summary table td.most-champion ul {
+  font-size: 0px;
+  margin-left: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.game-summary table td.most-champion ul li:nth-of-type(1) {
+  margin-top: 0px;
+}
+.game-summary table td.most-champion ul li {
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  margin-top: 12px;
+  padding-left: 42px;
+  padding-top: 1px;
+}
+.game-summary table td.most-champion ul li .name {
+  margin-bottom: 2px;
+  line-height: 16px;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.game-summary table td.most-champion ul li .icon {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.game-summary table td.most-champion ul li .icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.game-summary table td.most-champion ul li .name {
+  margin-bottom: 2px;
+  line-height: 16px;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.game-summary table td.most-champion ul li .win-lose {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 12px;
+  color: rgb(51, 51, 51);
+}
+.win-rate {
+  color: rgb(51, 51, 51);
+}
+.win-score {
+  display: inline-block;
+  line-height: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  color: rgb(51, 51, 51);
+}
+.win-score-60 {
+  color: #e19205;
+}
+.game-summary table td.summary {
+  padding: 0px 0px 0px 24px;
+  vertical-align: top;
+}
 
+.game-summary table td.summary .chart {
+  width: 90px;
+  height: 90px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+.game-summary table td.kda {
+  color: rgb(135, 146, 146);
+  text-align: center;
+  vertical-align: top;
+  padding-top: 18px;
+  width: 164px;
+}
+.game-summary table td.kda .k-d-a span {
+  color: rgb(85, 94, 94);
+}
+.game-summary table td.kda .k-d-a span.death {
+  color: rgb(198, 68, 62);
+}
+.game-summary table td.kda .ratio .kda-ratio {
+  color: rgb(53, 58, 58);
+  margin-right: 5px;
+}
+.game-summary table td.kda .ratio {
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 7px;
+}
+.game-summary table td.kda .ratio .kill-participantion {
+  color: rgb(198, 68, 62);
+}
+
+.game-summary table td.position-stats {
+  width: 183px;
+  border-left: 1px solid rgb(205, 210, 210);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.game-summary table td.position-stats ul {
+  padding: 0px 16px 0px 12px;
+  font-size: 0px;
+}
+.game-summary table td.position-stats ul li:nth-of-type(1) {
+  margin-top: 0px;
+}
+.game-summary table td.position-stats ul li {
+  margin-top: 20px;
+}
+.game-summary table td.position-stats ul li .icon {
+  display: inline-block;
+  width: 36px;
+  line-height: 34px;
+  vertical-align: middle;
+  text-align: center;
+}
+.game-summary table td.position-stats ul li .content {
+  display: inline-block;
+  vertical-align: middle;
+  padding-bottom: 1px;
+  margin-left: 4px;
+}
+.game-summary table td.position-stats ul li .content .name {
+  line-height: 16px;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  margin-bottom: 4px;
+}
+.game-summary table td.position-stats ul li .content .role-ratio {
+  line-height: 12px;
+  font-size: 11px;
+  color: rgb(31, 142, 205);
+}
+.game-summary table td.position-stats ul li .content .win-ratio {
+  line-height: 12px;
+  font-size: 11px;
+  color: rgb(102, 102, 102);
+}
+.game-summary table td.position-stats ul li .content .win-ratio::before {
+  display: inline-block;
+  margin-left: 6px;
+  margin-right: 6px;
+  content: "";
+  border-left: 1px solid rgb(205, 210, 210);
+  height: 12px;
+  vertical-align: middle;
+}
 tr {
   display: table-row;
   vertical-align: inherit;
@@ -102,13 +262,22 @@ img {
   margin-bottom: 8px;
 }
 
-.game-info {
+.game-info.win {
   display: table;
   table-layout: fixed;
   width: 689px;
   border-collapse: collapse;
   border: 1px solid #99b9cf;
   background-color: #a3cfec;
+}
+
+.game-info.lose {
+  display: table;
+  table-layout: fixed;
+  width: 689px;
+  border-collapse: collapse;
+  border: 1px solid #cea7a7;
+  background-color: #e2b6b3;
 }
 
 .game-info>div.info {
@@ -141,9 +310,14 @@ img {
   background: #99b9cf;
 }
 
-.game-info>div.info .game-result {
+.game-info.win>div.info .game-result {
   font-weight: bold;
   color: #1a78ae;
+}
+
+.game-info.lose>div.info .game-result {
+  font-weight: bold;
+  color: #c6443e;
 }
 
 .game-info>div.champion {
@@ -237,6 +411,37 @@ img {
   color: #353a3a;
 }
 
+.game-info>div.kda .multi-kill {
+  display: inline-block;
+  margin: 8px 4px 0;
+  font-size: 10px;
+  color: #f2f2f2;
+}
+.game-info>div.kda .multi-kill span {
+  display: inline-block;
+  background: #ee5a52;
+  border: 1px solid #c6443e;
+  border-radius: 15px;
+  padding: 2px 5px;
+  line-height: 1;
+}
+.game-info>div.kda .mvp {
+  background-color: #e19205;
+  border: solid 1px #b88a2a;
+}
+.game-info>div.kda .ace {
+  background-color: #8c51c5;
+  border: solid 1px #7f3590;
+}
+.game-info>div.kda .badge {
+  display: inline-block;
+  color: #fff;
+  margin: 8px auto 0;
+  font-size: 10px;
+  padding: 2px 5px;
+  line-height: 1;
+  border-radius: 9px;
+}
 .game-info>div.stats {
   width: 90px;
   font-size: 11px;
@@ -254,4 +459,73 @@ img {
 .game-info>div.stats .mmr b {
   color: #353a3a;
   text-transform: capitalize;
+}
+
+.game-info>div.items .item {
+  font-size: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.game-info>div.items .item ul {
+  width: 72px;
+}
+.game-info>div.items .item ul li {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  margin-top: 2px;
+  margin-right: 2px;
+  overflow: hidden;
+  background-color: #cea7a7;
+}
+.game-info>div.items .item ul li img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0%;
+}
+
+.game-info>div.items .item>div {
+  width: 22px;
+}
+.game-info>div.items .item>div .ward {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  margin-top: 2px;
+  margin-right: 2px;
+  overflow: hidden;
+  background-color: #cea7a7;
+}
+.game-info>div.items .item>div .ward img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0%;
+}
+
+.game-info>div.items .control {
+  margin-top: 7px;
+  color: #353a3a;
+  line-height: 13px;
+  font-size: 11px;
+  text-align: center;
+}
+.game-info>div.items .control img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0%;
 }

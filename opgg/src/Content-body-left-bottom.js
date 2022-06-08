@@ -39,7 +39,7 @@ export default function ContentBodyLeftBottom(props) {
            return '#2daf7f';
           else if (value >= 4.00 && value < 5.00)
              return '#1f8ecd';
-          else if (kda >= 5.00)
+          else if (value >= 5.00)
              return '#e19205';
           else
             return '#5e5e5e';

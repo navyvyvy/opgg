@@ -31,13 +31,13 @@ export default function Header() {
   const formRef = useRef();
 
   useEffect(() => {
-    document.addEventListener('mousedown', clickOutSide);
+    //document.addEventListener('mousedown', clickOutSide);
     fetchData(summonerName).then(res => {
       setSummoner(res.summoner);
     });
 
     return () => {
-      document.removeEventListener('mousedown', clickOutSide);
+      //document.removeEventListener('mousedown', clickOutSide);
     }
   }, [summonerName])
 
@@ -119,31 +119,13 @@ export default function Header() {
               <span>...</span>
             )}
           </button>
-          {suggestions.name != null && summoner.name !== suggestions.name && (
-            <div className="ac-container">
-              <div className="ac-list">
-                <ul className="ac-row">
-                  <li className="sg-link">
-                    <div className="sg-icon">
-                      <img src={suggestions.profileImageUrl} alt={suggestions.name}/>
-                    </div>
-                    <div className="sg-info">
-                      <div className="sg-name">
-                        <button type="submit">{suggestions.name}</button>
-                      </div>
-                      <div className="sg-desc">{suggestions.leagues[0].tierRank.string}</div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )}
+
           {used.length > 0 && isUsed && (
             <div className="ac-container">
               <div className="ac-list">
                 <div>
-                  <button className="ac-btn" disabled>최근검색</button>
-                  <button className="ac-btn ac-btn-disabled" disabled>즐겨찾기</button>
+                  <button className="ac-btn">최근검색</button>
+                  <button className="ac-btn ac-btn-disabled">즐겨찾기</button>
                 </div>
                 <ul>
                   {used.map((i, idx) => (
@@ -159,6 +141,25 @@ export default function Header() {
                       </button>
                     </li>
                   ))}
+                </ul>
+              </div>
+            </div>
+          )}
+          {suggestions.name != null && summoner.name !== suggestions.name && !isUsed && (
+            <div className="ac-container">
+              <div className="ac-list">
+                <ul className="ac-row">
+                  <li className="sg-link">
+                    <div className="sg-icon">
+                      <img src={suggestions.profileImageUrl} alt={suggestions.name}/>
+                    </div>
+                    <div className="sg-info">
+                      <div className="sg-name">
+                        <button type="submit">{suggestions.name}</button>
+                      </div>
+                      <div className="sg-desc">{suggestions.leagues[0].tierRank.string}</div>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
